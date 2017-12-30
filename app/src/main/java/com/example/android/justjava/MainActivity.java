@@ -9,6 +9,7 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    // number of coffee ordered
     int quantity = 0;
 
     @Override
@@ -17,26 +18,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * This method is called when the plus button is clicked.
+     */
     public void increment(View view) {
         quantity = quantity + 1;
         display(quantity);
     }
 
+    /**
+     * This method is called when the minus button is clicked.
+     */
     public void decrement(View view) {
         quantity = quantity - 1;
         display(quantity);
     }
 
+    /**
+     * This method is called when the order button is clicked.
+     */
     public void submitOrder(View view) {
         int price = quantity * 5;
         displayPrice(price);
     }
 
+    /**
+     * This method displays the given quantity value on the screen.
+     * @param number quantity value to display
+     */
     private void display(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
 
+    /**
+     * This method displays the given price value on the screen.
+     * @param number price value to display
+     */
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
